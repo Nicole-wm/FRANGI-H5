@@ -187,3 +187,16 @@ img{
     75%{transform:rotate(-15deg);}
     100%{transform:rotate(15deg);}
 }
+
+
+.d_logo{
+    animation:an_logo 3s linear 0s infinite both;
+}
+
+@keyframes an_logo
+{
+    from{}
+    to{transform:rotateY(360deg);}
+}
+
+
