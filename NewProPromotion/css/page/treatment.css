@@ -423,20 +423,20 @@
 	top:2rem;
 }
 .p9_a1{
-	top:11.5rem;
+	top:11rem;
 	left: -3rem;
 }
 .p9_a1 img{
 	width:2.722222rem;
 }
 .p9_a2{
-    top: 11.38rem;
+    top: 10.85rem;
 }
 .p9_a2 img{
 	width:2.555556rem;
 }
 .p9_a3{
-	top:11.3rem;
+	top:10.75rem;
 	left:3rem;
 }
 .p9_a3 img{
@@ -577,10 +577,23 @@
 	width:3.916667rem;
 }
 /*************************************page14*************************************/
-.p14_bg{
-	width:100%;
-	background:url('../../img/treatment/14/bg.jpg');
-	background-size:100% 100%;
-	background-repeat:no-repeat;
+.p14_a1{
+	top:2.5rem;
+}
+.p14_a1 img{
+	width:3.194444rem;
+}
+.p14_a2{
+	top:6.5rem;
+}
+.p14_a2 img{
+	width:5.75rem;
+}
+.p14_a3{
 	bottom: 0;
+	animation-name:my_breath;
+	animation-duration:3s;
+	animation-delay:0.25s;
+	animation-timing-function:linear;
+	animation-iteration-count:infinite;
 }
