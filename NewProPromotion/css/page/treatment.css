@@ -384,18 +384,18 @@
 	width:7.268519rem;
 }
 .p8_a1{
-	top:4.5rem;
+	top:5rem;
 	left:-2.3rem;
 }
 .p8_a1 img{
-	width:2.268519rem;
+	width:2.148148rem;
 }
 .p8_a2{
 	top:4.43rem;
 	left:2.3rem;
 }
 .p8_a2 img{
-	width:2.101852rem;
+	width:2.138889rem;
 }
 /*************************************page9*************************************/
 .p9_bg{
@@ -499,17 +499,9 @@
 }
 .p11_a4{
 	top: 13rem;
-	right: 2rem;
 }
 .p11_a4 img{
-	width:2.796296rem
-}
-.p11_a5{
-	top: 12.5rem;
-	right: -2rem;
-}
-.p11_a5 img{
-	width:1.898148rem;
+	width:6.083333rem;
 }
 /*************************************page12*************************************/
 .p12_t1{
@@ -590,4 +582,5 @@
 	background:url('../../img/treatment/14/bg.jpg');
 	background-size:100% 100%;
 	background-repeat:no-repeat;
+	bottom: 0;
 }
