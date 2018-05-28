@@ -1,0 +1,445 @@
+.p_bg{
+	height:100%;
+	background:url('../../img/brandstory/public/bg.png');
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}
+.p_logo{
+	top:1.533333rem;
+}
+.p_logo img{
+	width:3.333333rem;
+}
+
+/*************************************page1*************************************/
+.p1_t1{
+	top:5.733333rem;
+}
+.p1_t1 img{
+	width:1.066667rem;
+}
+.p1_a1{
+	top:12.0rem;
+}
+.p1_a1 img{
+	width:6.56rem;
+}
+.p1_a2{
+	top:14.3rem;
+}
+.p1_a2 img{
+	width:6.56rem;
+}
+/*************************************page2*************************************/
+.p2_a1 img{
+	width:11rem;
+	margin-left: -0.5rem;
+}
+.p2_t1{
+	top:2rem;
+}
+.p2_t1 img{
+	width:8.88rem;
+}
+/*************************************page3*************************************/
+.p3_a2{
+	top:4rem;
+}
+.p3_a2 img{
+	width:9.106667rem;
+}
+.p3_t1{
+	top:2.5rem;
+}
+.p3_t1 img{
+	width:2.64rem;
+}
+.p3_t2{
+	top:9.5rem;
+}
+.p3_t2 img{
+	width:2.586667rem;
+}
+.p3_t3{
+	top:11rem;
+}
+.p3_t3 img{
+	width:6.04rem;
+}
+/*************************************page4*************************************/
+.p4_a1{
+	width:2.08rem;
+	bottom: 0;
+	left: 0;
+}
+.p4_t1{
+	top:0.933333rem;
+}
+.p4_t1 img{
+	width:4.933333rem;
+}
+.p4_a2{
+	top:2.4rem;
+}
+.p4_a2 img{
+	width:8.76rem;
+}
+.p4_a3{
+	width:0.88rem;
+	top:2.96rem;
+	left: 1.333333rem;
+}
+.p4_a3_2{
+	width:0.88rem;
+	top:3.2rem;
+	left:4.666667rem;
+}
+.p4_a4{
+	width:0.893333rem;
+	top: 3.3rem;
+	left: 1.5rem;
+}
+.p4_a5{
+	width:3.0rem;
+	top: 3.6rem;
+	left: 5rem;
+}
+.p4_a6{
+	width:1.52rem;
+	top: 6rem;
+	left: 1.5rem;
+}
+.p4_a7{
+	width:2.52rem;
+	top: 6rem;
+	left: 6.55rem;
+}
+.p4_t2{
+	top:8.266667rem;
+}
+.p4_t2 img{
+	width:4.933333rem;
+}
+.p4_a10{
+	width:4.533333rem;
+	top: 9.866667rem;
+	left:0.65rem;
+}
+.p4_a11{
+	width:4.533333rem;
+	top: 9.866667rem;
+	right:0.65rem;
+}
+.p4_a12{
+	top:12.8rem;
+}
+.p4_a12 img{
+	width:4.533333rem;
+}
+/*************************************page5*************************************/
+.p5_a1{
+	width:2.08rem;
+	left: 0;
+	top:0;
+}
+.p5_a2{
+	width:1.973333rem;
+	right:0;
+	bottom:0;
+}
+.p5_a3{
+	top:8.666667rem;
+}
+.p5_a3 img{
+	width:5.226667rem;
+}
+
+.p5_t1{
+	top:1.426667rem
+}
+.p5_t1 img{
+	width:2.773333rem
+}
+.p5_t2{
+	top:3.333333rem;
+}
+.p5_t2 img{
+	width:5.146667rem
+}
+
+.p5_t3{
+	top:4.666667rem;
+}
+.p5_t3 img{
+	width:7.2rem;
+}
+/*************************************page6*************************************/
+.p6_a0{
+	top:5rem;
+}
+.p6_a0 img{
+	width:7.106667rem;
+}
+.p6_a1{
+	top: 4.2rem;
+	z-index: 10;
+}
+.p6_a1 img{
+	width:3.186667rem
+}
+.p6_t1{
+	top:1.388889rem;
+}
+.p6_t1 img{
+	width:7.6rem
+}
+.p6_t2{
+	top:4.861111rem;
+}
+.p6_t2 img{
+	width:10.08rem
+}
+.p6_t3{
+	top:14.259259rem;
+}
+.p6_t3 img{
+	width:4.693333rem;
+}
+
+/*************************************page7*************************************/
+.p7_bg{
+	height:100%;
+	background:url('../../img/brandstory/7/bg.jpg');
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}
+.p7_a2{
+	top:1.388889rem;
+}
+.p7_a2 img{
+	width:4.009259rem;
+}
+.p7_rl{
+	top:3.55rem;
+}
+.p7_rl img{
+	width:10.0rem;
+}
+.p7_bottle{
+	top:5.3rem;
+}
+.p7_bottle img{
+	width:2.064815rem;
+}
+.p7_b1{
+	z-index:8;
+}
+.p7_b2{
+	transform: rotate(20deg);
+	z-index:7;
+	opacity:0.6;
+}
+.p7_b3{
+	transform: rotate(40deg);
+	z-index:6;
+	opacity:0.5;
+}
+.p7_b4{
+	transform: rotate(60deg);
+	z-index:5;
+	opacity:0.35;
+}
+.p7_b5{
+	transform: rotate(80deg);
+	z-index:4;
+	opacity:0.2;
+}
+.p7_b6{
+	transform: rotate(100deg);
+	z-index:3;
+	opacity:0.1;
+}
+.p7_b7{
+	transform: rotate(120deg);
+	z-index:2;
+	opacity:0.05;
+}
+.p7_b8{
+	transform: rotate(140deg);
+	z-index:1;
+	opacity:0.01;
+}
+.p7_text{
+	width: 1.851852rem;
+	z-index: 10;
+}
+.p7_t1{
+	top:6.25rem;
+	left: 1.83rem;
+}
+.p7_t2{
+	top:7.11rem;
+	left:1.24rem;
+}
+.p7_t3{
+	top:8rem;
+	left:0.93rem;
+}
+.p7_t4{
+	top:8.89rem;
+	left:0.84rem;
+}
+.p7_t5{
+	top:9.76rem;
+	left:0.79rem;
+}
+.p7_t6{
+	top:10.63rem;
+	left:1rem;
+}
+.p7_t7{
+	top:11.5rem;
+	left:1.4rem;
+}
+.p7_t8{
+	top:12.37rem;
+	left:2.1rem;
+}
+
+/*************************************page8*************************************/
+.p8_bg{
+	height:100%;
+	background:url('../../img/brandstory/8/bg.jpg');
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}
+.p8_t0{
+	top:1.388889rem;
+}
+.p8_t0 img{
+	width:5.04rem
+}
+.p8_a1{
+	top:5.212963rem;
+	right:2.7rem;
+}
+.p8_a1 img{
+	width:2.462963rem;
+}
+.p8_a2{
+	top: 11.8rem;
+	right:3.26rem;
+}
+.p8_a2 img{
+	width:3.5rem;
+}
+.p8_t1{
+	width:5.04rem;
+	top: 4.9rem;
+	right:1rem;
+}
+.p8_t2{
+	width:5.04rem;
+	top:7.9rem;
+	right:0.8rem;
+}
+.p8_t3{
+	width:5.04rem;
+	top: 10.6rem;
+	right:0.86rem;
+}
+.p8_t4{
+	width:5.04rem;
+	top: 13.5rem;
+	right:1rem;
+}
+/*************************************page9*************************************/
+.p9_t1{
+	top:1.466667rem;
+}
+.p9_t1 img{
+	width:4.186667rem;
+}
+.p9_t2{
+	top: 3.35rem;
+}
+.p9_t2 img{
+	width:4.52rem;
+}
+.p9_t3{
+	top:4.466667rem;
+}
+.p9_t3 img{
+	width:8.186667rem;
+}
+.p9_t4{
+	top:9.2rem;
+}
+.p9_t4 img{
+	width:8.186667rem;
+}
+.p9_a1{
+	top:12.8rem;
+}
+.p9_a1 img{
+	width:4.72rem;
+}
+/*************************************page10*************************************/
+.p10_t1{
+	top:1.2rem;
+}
+.p10_t1 img{
+	width:3.24rem;
+}
+.p10_a1{
+	top:3rem;
+}
+.p10_a2{
+	top:3.9rem;
+}
+.p10_a3{
+	top:4.7rem;
+}
+.p10_a4{
+	top:5.5rem;
+}
+.p10_a5{
+	top:6.3rem;
+}
+.p10_a6{
+	top:7.1rem;
+}
+.p10_a7{
+	top:7.9rem;
+}
+.p10_a8{
+	top:8.7rem;
+}
+.p10_a9{
+	top:9.5rem;
+}
+.p10_a10{
+	top:10.3rem;
+}
+.p10_a11{
+	top:11.1rem;
+}
+.p10_a12{
+	top:11.9rem;
+}
+.p10_a13{
+	top:12.7rem;
+}
+.p10_a14{
+	top:13.9rem;
+}
+/*************************************page11*************************************/
+.p11_t1{
+	top:8.4rem;
+}
+.p11_t1 img{
+	width:6.946667rem;
+}
+.p11_logo{
+	top:4.16rem;
+}

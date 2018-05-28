@@ -590,10 +590,10 @@
 	width:5.75rem;
 }
 .p14_a3{
-	bottom: 0;
+	bottom: 0;/*
 	animation-name:my_breath;
 	animation-duration:3s;
 	animation-delay:0.25s;
 	animation-timing-function:linear;
-	animation-iteration-count:infinite;
+	animation-iteration-count:infinite;*/
 }
