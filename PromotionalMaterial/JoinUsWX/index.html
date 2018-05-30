@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>FRANGI大家族，欢迎您的加入</title>
+	<meta name="keywords" content="FRANGI大家族，欢迎您的加入" />
+	<meta name="description" content="动动手指，加入我们吧！" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<link rel="icon" href="../../IMG/frangi.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/base.css"> 
+	<!-- pageCSS -->
+	<link rel="stylesheet" href="css/index.css"> 
+	<script src="../../JS/flexible_css.js"></script>
+	<script src="../../JS/flexible.js"></script>
+	<!-- h5.frangi.cn Baidu tongji analytics -->
+	<script src="../../JS/baiduhm.js"></script>
+</head>
+
+<body>
+	<div class="main">
+		<div class="page_top">
+			<img src="img/top.jpg">
+		</div>
+		<div class="page_content">
+			<div class="tips">
+				<p>说明：填写资料后，我们将尽快与您取得联系。</p>
+				<p>如未能及时回复，您可拨打官方招商热线：</p>
+				<p>400-832-7699</p>
+			</div>
+			<div class="page_form">
+				<form id="FormApp" onsubmit="return PostData()">
+					<div class="form_group">  
+						<div class="form_label">
+							<label for="name">姓名</label>
+						</div>  
+						<div class="form_input">
+							<input type="text" class="form-control" id="name" name="name" placeholder="" required>
+						</div>
+					</div>  
+					<div class="form_group"> 
+						<div class="form_label">
+							<label for="name">性别</label>
+						</div>  
+						<div class="form_input">
+							<span class="form_radio">
+								<input type="radio" name="sex" id="male" checked="checked" value="male"/>
+								<label for="male">先生</label>
+							</span>
+							<span class="form_radio">
+								<input type="radio" name="sex" id="female" value="female"/>
+								<label for="female">女士</label>
+							</span>
+						</div>
+					</div>  
+					<div class="form_group">  
+						<div class="form_label">
+							<label for="name">手机号</label>
+						</div>  
+						<div class="form_input">
+							<input name="phone" id="phone" class="pf_phone" type="tel" required>
+						</div>
+					</div>
+					<div class="form_group">  
+						<div class="form_label">
+							<label for="name">微信号</label>
+						</div>  
+						<div class="form_input">
+							<input name="wx" type="text" id="wx" class="pf_wx" required>
+						</div>
+					</div>
+					<div class="form_group">  
+						<input type="submit" class="pf_submit" value="立即加入"> 
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="mask">
+		<div class="loading">正在申请中，请等待！</div>
+	</div> 
+	<script src="js/index.js"></script>
+	<script src="../../JS/jquery-3.2.1.min.js"></script>
+	<script src="../../JS/jweixin.js"></script>
+	<script src="js/weixinshare.js"></script>
+</body>
+</html> 

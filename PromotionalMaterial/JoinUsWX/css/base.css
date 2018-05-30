@@ -1,0 +1,45 @@
+/*******************Base*******************/
+html,body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #fff;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+}
+img{
+    display:block;
+    margin: auto;
+    width: 100%;
+    border: 0;
+}
+/* 加载页面 */
+.mask{
+    display: none;
+    z-index:999999;
+    height:100%;
+    width: 100%;
+    position:fixed;
+    top:0px;
+    left: 0px;
+    background-color:#000000;/* IE6和部分IE7内核的浏览器(如QQ浏览器)下颜色被覆盖 */
+    background-color:rgba(0,0,0,0.6); /* IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂，但解析为透明 */
+    text-align: center;
+}
+.mask div{
+    color: #ffffff;
+    font-size:0.5rem;
+    height:1rem;
+    line-height: 1rem;
+    position: fixed;
+    margin:auto;
+    left:0; 
+    right:0; 
+    top:0; 
+    bottom:0;
+}
+.mask .result{
+    display: none;
+}
