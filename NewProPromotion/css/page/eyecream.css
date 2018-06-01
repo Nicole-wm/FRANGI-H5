@@ -1,7 +1,25 @@
 .p_bg{
 	height:100%;
+	background:url('../../img/eyecream/public/p_bg.png');
+	background-size:100% 100%;
+	background-repeat:no-repeat;
 }
 
-.p_bg img{
+.p_content{
+	width: 100%;
+}
+
+.pb_bg{
+	background-color: #000;
+}
+
+.p2_bg{
+	background-color: #f1ebe7;
+}
+
+.p3_bg{
 	height:100%;
+	background:url('../../img/eyecream/3/bg.png');
+	background-size:100% 100%;
+	background-repeat:no-repeat;
 }
