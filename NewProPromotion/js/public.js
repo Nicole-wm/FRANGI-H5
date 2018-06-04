@@ -55,3 +55,10 @@ $("img.lazy").lazyload({
 	placeholder : "img/base/loading.jpg",    
 	effect : "fadeIn"  
 });*/
+
+$(".base-box li").on("click",function(e){
+	var ProUrl=$(this).attr('linkurl');
+	if(ProUrl){
+		window.location.href=ProUrl;
+	}
+});

@@ -18,3 +18,25 @@
 .bottom-arr img{
     width:0.6rem;
 }
+
+/*************************Home*************************/
+.li-box{
+  overflow: hidden;
+}
+.li-box li {
+  width: 50%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  float: left;
+  padding:0.4832rem
+}
+.li-box li p {
+  font-size: 0.38rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  text-align: center;
+}
