@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>FRANGI芙蓉肌品牌沙龙</title>
+	<meta name="keywords" content="FRANGI芙蓉肌品牌沙龙" />
+	<meta name="description" content="FRANGI芙蓉肌品牌沙龙" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<link rel="icon" href="../../IMG/frangi.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/public.css"> 
+	<script src="/JS/flexible_css.js"></script>
+	<script src="/JS/flexible.js"></script>
+	<!-- h5.frangi.cn Baidu tongji analytics -->
+	<script src="/JS/baiduhm.js"></script>
+</head>
+
+<body>
+	<div class="main">
+		<div class="p_logo">
+			<img src="img/logo.png">
+		</div>
+		<div class="p_content">
+			<div class="add_person">
+				<form id="FormApp" onsubmit="return PostData()">
+					<select class="pf_select" name="actno" >
+						<option value ="1">温州（180630）</option>
+						<option value ="2">杭州（180710）</option>
+					</select>
+					<input class="pf_input"  type="text" id="name" name="name" placeholder="输入参加人员姓名" required>
+					<input class="pf_submit" type="submit" class="pf_submit" value="添加"> 
+				</form>
+			</div>
+			<div class="person_list">
+				<table class="plist_table" id="plist_table">  
+					<caption>  
+						<h2>活动人员名单</h2>  
+					</caption>  
+					<thead>  
+						<tr>  
+							<th>  
+								编号  
+							</th>  
+							<th>  
+								姓名  
+							</th>  
+							<th>  
+								身份ID  
+							</th>  
+							<th>  
+								活动  
+							</th>   
+							<th>  
+								邀请链接
+							</th>  
+						</tr>  
+					</thead>  
+					<tbody>
+						
+					</tbody>
+				</table>  
+			</div>
+		</div>
+	</div>
+	<script src="/JS/jweixin.js"></script>
+	<script src="/JS/jquery-3.2.1.min.js"></script>
+	<script src="js/weixinshare.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript">
+		wx.ready(function () {
+			var sharedata = {
+				title: 'FRANGI芙蓉肌品牌沙龙',
+				desc: 'FRANGI芙蓉肌品牌沙龙',
+				link:'http://h5.frangi.cn/ThematicSalon/manage/index.html',
+				imgUrl: 'http://h5.frangi.cn/IMG/shareIco.png',
+				success: function () {
+				},
+				cancel: function () {
+				}
+			};
+			wx.onMenuShareAppMessage(sharedata);
+			wx.onMenuShareTimeline(sharedata);
+			wx.hideMenuItems({
+				menuList: [
+				'menuItem:share:qq',
+				'menuItem:share:QZone'
+				] 
+			});
+		});
+	</script>
+</body>
+</html> 
