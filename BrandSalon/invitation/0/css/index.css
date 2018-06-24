@@ -1,0 +1,215 @@
+.p_bg{
+	height:100%;
+	background:url('../img/public/bg.jpg');
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}
+.p1_bg{
+	height:100%;
+	background:url('../img/1/bg.jpg');
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}
+.p_content{
+	width: 100%;
+}
+
+.barcode{
+	text-align: center;
+}
+
+
+.p1_a1{
+	top:1.4rem;
+	left: -0.12rem;
+}
+.p1_a1 img{
+	transform: rotate(-24deg);
+	width:4rem;
+}
+
+.p1_a2{
+	top:3.8rem
+}
+.p1_a2 img{
+	width:3.4rem;
+}
+
+.p1_a3{
+	top:10rem
+}
+.p1_a3 img{
+	width:7rem
+}
+
+.p1_t1{
+	top:6.5rem;
+	text-align: center;
+}
+.p1_t1 img{
+	width:6.08rem
+}
+.pername{
+	position: absolute;
+	top:0.09rem;
+	left:42%;
+	font-size:0.4rem;
+	color: #b18e5b;
+}
+
+.p1_t2{
+	top:8.3rem
+}
+.p1_t2 img{
+	width:6.5rem
+}
+
+.p2_t1{
+	top:2.7rem;
+}
+.p2_t1 img{
+	width:4.63rem;
+}
+
+.p2_t2{
+	top:5rem;
+}
+.p2_t2 img{
+	width:5.02rem;
+}
+
+.p2_t3{
+	top:7.8rem;
+}
+.p2_t3 img{
+	width:3.91rem
+}
+
+.p2_a1{
+	top:9.5rem;
+	left:-0.8rem;
+}
+.p2_a1 img{
+	width:6.47rem
+}
+
+.p2_a2{
+	top:11.5rem;
+	right:-1.8rem;
+}
+.p2_a2 img{
+	width:6.47rem
+}
+
+
+.p3_t1{
+	top:2.5rem;
+}
+.p3_t1 img{
+	width:3.435185rem
+}
+
+.p3_t2{
+	top:4.5rem;
+}
+.p3_t2 img{
+	width:3.398148rem
+}
+
+.p3_a1{
+    top:7.8rem;
+    right: -0.7rem;
+}
+.p3_a1 img{
+	width:6.08rem
+}
+
+.p3_a2{
+	top:10.4rem;
+	left:-1rem;
+}
+.p3_a2 img{
+	width:6.08rem
+}
+
+.p3_a3{
+	top:12.4rem;
+	right:-1.2rem;
+}
+.p3_a3 img{
+	width:6.08rem
+}
+
+.p4_t1{
+	top:2.5rem;
+}
+.p4_t1 img{
+	width:3.87037rem
+}
+
+.p4_t2{
+	top:3.8rem;
+}
+.p4_t2 img{
+	width:2.666667rem
+}
+
+.p4_t3{
+	top:6.1rem;
+}
+.p4_t3 img{
+	width:4.712963rem
+}
+
+.p4_a1{
+    top:9rem;
+}
+.p4_a1 img{
+	width:8.166667rem
+}
+
+.p5_t1{
+	top:2.5rem;
+}
+.p5_t1 img{
+	width:3.58rem
+}
+
+.p5_t2{
+	top:5rem;
+}
+.p5_t2 img{
+	width:8.25rem;
+}
+
+.p5_t3{
+	top:10rem;
+}
+.p5_t3 img{
+	width:4.416667rem;
+}
+
+.p5_a1{
+    top:11rem;
+}
+.p5_a1 img{
+	width:8.416667rem;
+}
+
+.p6_t1{
+	top:3rem;
+}
+.p6_t1 img{
+	width:5.87037rem;
+}
+
+.barcode{
+	top:5.5rem;
+}
+
+.p6_t2{
+	top:9.5rem;
+}
+.p6_t2 img{
+	width:5.166667rem;
+}

@@ -3,34 +3,56 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>FRANGI芙蓉肌品牌沙龙_验证</title>
-	<meta name="keywords" content="FRANGI芙蓉肌品牌沙龙_验证" />
-	<meta name="description" content="FRANGI芙蓉肌品牌沙龙_验证" />
+	<title>FRANGI芙蓉肌品牌沙龙_VIP验证</title>
+	<meta name="keywords" content="FRANGI芙蓉肌品牌沙龙_VIP验证" />
+	<meta name="description" content="FRANGI芙蓉肌品牌沙龙_VIP验证" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="format-detection" content="telephone=no,email=no">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
 	<link rel="icon" href="../../IMG/frangi.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/public.css"> 
-	<!-- <script src="/JS/flexible_css.js"></script>
-	<script src="/JS/flexible.js"></script> -->
+	<script src="/JS/flexible_css.js"></script>
+	<script src="/JS/flexible.js"></script>
 	<!-- h5.frangi.cn Baidu tongji analytics -->
 	<script src="/JS/baiduhm.js"></script>
 </head>
 
 <body>
 	<div class="main">
+		<div class="p_logo">
+			<img src="img/logo.png">
+		</div>
+		<div class="p_content">
+			<div class="check_person">
+				<form id="FormApp">
+					<input class="pg_input" type="text" id="pg_name" name="name" placeholder="输入参加人员身份ID" required>
+					<input class="pg_submit" type="text" value="验证" onclick="CheckVIP()"> 
+				</form>
+				<div class="check_result">
+					<p id="check_true" class="check_true">
+						<img src="img/check_t.png" class="check_img">
+						<span>验证通过</span>
+					</p>
+					<p id="check_false" class="check_false">
+						<img src="img/check_f.png" class="check_img">
+						<span>验证失败</span>
+					</p>
+				</div>
+			</div>
+		</div>
 	</div>
-	<script src="js/index.js"></script>
-	<script src="/JS/jquery-3.2.1.min.js"></script>
 	<script src="/JS/jweixin.js"></script>
+	<script src="/JS/jquery-3.2.1.min.js"></script>
+	<script src="/JS/geturl.js"></script>
 	<script src="js/weixinshare.js"></script>
+	<script src="js/check.js"></script>
 	<script type="text/javascript">
 		wx.ready(function () {
 			var sharedata = {
-				title: 'FRANGI芙蓉肌品牌沙龙_验证',
-				desc: 'FRANGI芙蓉肌品牌沙龙_验证',
-				link:'http://h5.frangi.cn/ThematicSalon/manage/check.html',
+				title: 'FRANGI芙蓉肌品牌沙龙_VIP验证',
+				desc: 'FRANGI芙蓉肌品牌沙龙_VIP验证',
+				link:'http://h5.frangi.cn/ThematicSalon/manage/index.html',
 				imgUrl: 'http://h5.frangi.cn/IMG/shareIco.png',
 				success: function () {
 				},

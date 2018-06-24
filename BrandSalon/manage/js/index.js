@@ -1,40 +1,73 @@
-$(function(){
-	var actlist=[
-		{id:1,name:"温州（180630）"},
-		{id:2,name:"杭州（180710）"}
-	];
+var actlist=[
+	{id:0,name:"全部"},
+	{id:1,name:"温州（180630）"},
+	{id:2,name:"杭州（180710）"}
+];
 
-	var perlist=[
-		{id:1,name:"大橙子",keyno:14532089,actno:1},
-		{id:2,name:"大蚊子",keyno:64179465,actno:1},
-		{id:3,name:"大茧子",keyno:85476216,actno:1}
-	];
+var perlist=[];
+var totalItems=0;
 
-	PerListinit();
+var params={
+	'personID':'',
+	'actNo':''
+}
 
-	function PerListinit(){
-		$('#plist_table tr:gt(0)').remove();
-		var s = '';
-		for (var i = 0; i < perlist.length; i++) {
-			var objact = actlist.find(function(x) {
-				return x.id == perlist[i].actno;
-			});
-			perlist[i].link="http://h5.frangi.cn/BrandSalon/"+perlist[i].actno+"/index.html?ID="+perlist[i].keyno;
-			s+= '<tr><td>' + perlist[i].id + '</td><td>' + perlist[i].name + '</td><td>' + perlist[i].keyno + '</td>'
-			+ '<td>' + objact.name + '</td><td><a href="'+perlist[i].link+'" target="_blank">' + perlist[i].link + '</a></td></tr>';
-		}
-		$('#plist_table tbody').append(s);
-	}
+PerListinit(params);
 
-
-	function PostData() {
-		$.ajax({
-			type: "POST",
-			url: "../../api/person_add.php",
-			data : $('#FormApp').serialize(),
-			success: function(msg) {
-				alert("添加成功！");
+function PerListinit(params){
+	$.ajax({
+		type: "GET",
+		url: "../api/person_list.php",
+		data : params,
+		dataType:"json",
+		success: function(msg) {
+			if(msg.code==1) {
+				totalItems=msg.data.count;
+				perlist=msg.data.results;
+				PushData(perlist);
+			}else{
+				console.log('Server Error');
 			}
+		}
+	});
+}
+
+function PushData(perlist){
+	$('#plist_table tr:gt(0)').remove();
+	var s = '';
+	var cid=1;
+	for (var i = 0; i < perlist.length; i++) {
+		var objact = actlist.find(function(x) {
+			return x.id == perlist[i].actno*1;
 		});
+
+		perlist[i].link="http://h5.frangi.cn/BrandSalon/invitation/"+perlist[i].actno+"/index.html?ID="+perlist[i].keyno;
+		s+= '<tr><td>' + cid + '</td><td>' + perlist[i].name + '</td><td>' + perlist[i].keyno + '</td>'
+		+ '<td>' + objact.name + '</td><td><a href="'+perlist[i].link+'" target="_blank">' + perlist[i].link + '</a></td></tr>';
+		cid++;
 	}
-});
+	$('#plist_table tbody').append(s);
+}
+
+function PostData() {
+	$.ajax({
+		type: "POST",
+		url: "../api/person_add.php",
+		data : $('#FormApp').serialize(),
+		success: function(msg) {
+			alert("添加成功！");
+			var params={
+				'actNo':$("#pf_select option:selected").val()
+			}
+			PerListinit(params);
+		}
+	});
+	return false; 
+}
+
+function CheckAct(){
+	var params={
+		'actNo':$("#pf_select option:selected").val()
+	}
+	PerListinit(params);
+}

@@ -9,6 +9,7 @@ html,body {
     font-size: 14px;
     color: #666;
     background-image: url("../img/bg.jpg"); 
+    min-width: 700px;
 }
 input,select{
   box-sizing:border-box;
@@ -39,6 +40,7 @@ a{
 }
 .p_content{
     width:100%;
+    min-width: 700px;
 }
 /*index*/
 .add_person{
@@ -46,27 +48,39 @@ a{
     margin: 0 auto;
     margin: 1rem auto;
 }
-.pf_select,.pf_input,.pf_submit{
+.pf_select,.pf_input,.pf_submit,.pg_input,.pg_submit{
     height: 0.8rem;
     line-height:0.8rem;
     font-size:0.35rem;
+    text-align: center;
 }
 .pf_select{
     width:20%;
 }
-.pf_input{
+.pf_input,.pg_input{
     width:64%;
     text-indent:0.3rem;
 }
-.pf_submit{
+.pf_submit,.pg_submit{
     width:13%;
     color: #fff;
     background-color: #000;
     border:1px solid #000;
 }
-
+.check_person{
+    width:70%;
+    margin: 0 auto;
+    margin: 1rem auto;
+}
+.pg_input{
+    width:70%;
+}
+.pg_submit{
+    cursor: pointer;
+    width:28%;
+}
 /*person_list*/
-.person_list{
+.person_list,.check_list{
     width:80%;
     margin: 0 auto;
     margin: 1rem auto;
@@ -104,3 +118,32 @@ a{
 {  
     background: #eeeeee;  
 }  
+
+.check_list{
+    display: none;
+}
+.check_result{
+    margin:0.5rem auto;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.check_true,.check_false{
+    display: none;
+}
+
+.check_true *,.check_false *{
+    vertical-align:middle;
+}
+
+.check_true *{
+    color:#2aaf53;
+}
+
+.check_false *{
+    color:#db1d24;
+}
+.check_img{
+    display: inline-block;
+    width:1.2rem;
+}

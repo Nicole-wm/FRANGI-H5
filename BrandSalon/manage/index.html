@@ -26,12 +26,13 @@
 		<div class="p_content">
 			<div class="add_person">
 				<form id="FormApp" onsubmit="return PostData()">
-					<select class="pf_select" name="actno" >
+					<select id="pf_select" class="pf_select" name="actno" onchange="CheckAct()">
 						<option value ="1">温州（180630）</option>
 						<option value ="2">杭州（180710）</option>
+						<option value ="">全部</option>
 					</select>
 					<input class="pf_input"  type="text" id="name" name="name" placeholder="输入参加人员姓名" required>
-					<input class="pf_submit" type="submit" class="pf_submit" value="添加"> 
+					<input class="pf_submit" type="submit" value="添加"> 
 				</form>
 			</div>
 			<div class="person_list">
