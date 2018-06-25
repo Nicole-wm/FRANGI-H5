@@ -1,7 +1,7 @@
 var actlist=[
-	{id:0,name:"全部"},
-	{id:1,name:"温州（180630）"},
-	{id:2,name:"杭州（180710）"}
+{id:0,name:"全部"},
+{id:1,name:"温州（180630）"},
+{id:2,name:"杭州（180710）"}
 ];
 
 var perlist=[];
@@ -71,3 +71,15 @@ function CheckAct(){
 	}
 	PerListinit(params);
 }
+
+
+$("#DownXls").click(function(){
+	$(".table2excel").table2excel({
+		exclude: ".noExl",
+		name: "FRANGI芙蓉肌品牌沙龙_人员名单",
+		filename: "FRANGI芙蓉肌品牌沙龙_人员名单",
+		exclude_img: true,
+		exclude_links: true,
+		exclude_inputs: true
+	});
+});

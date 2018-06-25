@@ -147,3 +147,14 @@ a{
     display: inline-block;
     width:1.2rem;
 }
+
+.down_btn{
+    font-size: 0.05rem;
+    color: #ffffff;
+    background-color: #000000;
+    margin-left: 0.2rem;
+    padding: 0.08rem;
+    /*color: #ffffff;
+    background-color: #000000;
+    */
+}
