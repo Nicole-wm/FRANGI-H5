@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>FRANGI品牌沙龙_邀请人管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" href="/IMG/frangi.ico" type="image/x-icon">
+    <link href="/CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="css/public.css" rel="stylesheet">
+    <link href="plugins/bootstrap/css/bootoast.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main" id="fsalon_inve">
+        <div class="page_top">
+            <div class="container"> 
+                <div class="row"> 
+                    <img class="center-block" alt="logo" src="img/logo.png" >
+                </div>
+                <div class="row"> 
+                    <h3 class="text-center mb-3" v-if="!ShowInvrMge" v-clock>品牌沙龙邀请人管理</h3>
+                    <h3 class="text-center mb-3" v-if="ShowInvrMge" v-clock>品牌沙龙邀约名单_{{CurInvrName}}({{CurInvrActText}})</h3>
+                    <h5 class="text-center mb-3" v-if="ShowInvrMge" v-clock>您的专属邀请：
+                        <a :href="CurInvrInvemgeurl" target="_blank">{{CurInvrInvemgeurl}}</a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="page_content">
+            <div class="container"> 
+                <div class="row"> 
+                    <div v-if="!ShowInvrMge" v-clock>
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5" style="padding-left:0">
+                            <select v-model="SelectAct" class="form-control" @change="SelectInve()">
+                                <option value="">所有活动</option>
+                                <option v-for="item in actlist" :value="item.id">{{item.activetime}} ( {{item.area}} )</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
+                            <select v-model="SelectInvr" class="form-control" @change="SelectInve()">
+                                <option value="">所有受邀人</option>
+                                <option v-for="item in invrlist" :value="item.id">{{item.name}} ( {{item.phone}} )</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button @click="OpenForm()" data-toggle="modal" data-target="#myFormModal" type="button" class="btn btn-sm btn-primary pull-right">添加</button>
+                </div>
+                <div class="row clearfix">
+                    <div class="table-responsive page_table"> 
+                        <h3 v-if="showListFlag" class="text-center">暂无邀请人</h3>
+                        <table id="irlist_table" v-if="!showListFlag" v-clock class="table table-bordered table-hover text-center text-nowrap">
+                            <caption class="text-center">
+                                <h4>
+                                    邀请人列表
+                                    <button @click="DownTable()" type="button" class="btn btn-default btn-xs" title="点击下载">
+                                        <span class="glyphicon glyphicon glyphicon-download-alt"></span>
+                                    </button>
+                                </h4>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        编号
+                                    </th>
+                                    <th>
+                                        姓名
+                                    </th>
+                                    <th>
+                                        联系方式
+                                    </th>
+                                    <th v-if="!ShowInvrMge" v-clock>
+                                        活动
+                                    </th>
+                                    <th>
+                                        身份ID
+                                    </th>
+                                    <th v-if="!ShowInvrMge" v-clock>
+                                        邀请人
+                                    </th>
+                                    <th>
+                                        邀请函
+                                    </th>
+                                    <th class="noExl">
+                                        操作
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(item,index) in invelist">
+                                    <td>
+                                        {{index+1}}
+                                    </td>
+                                    <td>
+                                        {{item.name}}
+                                    </td>
+                                    <td>
+                                        {{item.phone}}
+                                    </td>
+                                    <td v-if="!ShowInvrMge" v-clock>
+                                        {{item.activetime}} ( {{item.area}} )
+                                    </td>
+                                    <td>
+                                        {{item.keyno}}
+                                    </td>
+                                    <td v-if="!ShowInvrMge" v-clock>
+                                        {{item.invrname}}
+                                    </td>
+                                    <td>
+                                        <a :href="item.invemgeurl" target="_blank">{{item.invemgeurl}}</a>
+                                    </td>
+                                    <td class="noExl">
+                                        <button v-if="item.invr==0" @click="ToInvr()" type="button" class="btn btn-sm btn-primary">受邀人</button>
+                                        <button v-if="item.invr!=0" @click="OpenForm(item)" data-toggle="modal" data-target="#myFormModal" type="button" class="btn btn-success btn-sm" title="编辑">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </button>
+                                        <button v-if="item.invr!=0" @click="OpenForm(item)"  data-toggle="modal" data-target="#myDeleteModal" type="button" class="btn btn-danger btn-sm" title="删除">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 表单（Modal） -->
+        <div class="modal fade" id="myFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button ref="FormCloseBtn" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">邀请人信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="inve_name">姓名:</label>
+                            <input v-model="FormInveName" type="text" class="form-control" id="inve_name" placeholder="请输入姓名" >
+                        </div>
+                        <div class="form-group">
+                            <label for="inve_phone">联系方式:</label>
+                            <input v-model="FormInvePhone" type="text" class="form-control" id="inve_phone" placeholder="请输入联系方式" >
+                        </div>
+                        <div class="form-group" v-if="!ShowInvrMge" v-clock>
+                            <label for="inve_act">活动:</label>
+                            <select v-model="FormInveAct" class="form-control" id="inve_act">
+                                <option v-for="item in actlist" :value="item.id">{{item.activetime}} ( {{item.area}} )</option>
+                            </select>
+                        </div>
+                        <div class="form-group" v-if="!ShowInvrMge" v-clock>
+                            <label for="inve_invr">受邀于:</label>
+                            <select v-model="FormInveInvr" class="form-control" id="inve_invr" >
+                                <option v-for="item in invrlist" :value="item.id">{{item.name}} ( {{item.phone}} )</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" @click="SubmitForm()">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 删除（Modal） -->
+        <div class="modal fade" id="myDeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button ref="ModalCloseBtn" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">删除邀请人</h4>
+                    </div>
+                    <div class="modal-body">确定删除邀请人么？</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-danger" @click="DeleteInve()" >确定</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+    <!-- h5.frangi.cn Baidu tongji analytics -->
+    <script src="/JS/baiduhm.js"></script>
+    <script src="/JS/jquery-3.2.1.min.js"></script>
+    <script src="/JS/bootstrap.min.js"></script>
+    <script src="plugins/jquery/jquery.table2excel.js"></script>
+    <script src="plugins/bootstrap/js/bootoast.js"></script>
+    <script src="plugins/vue/vue.min.js"></script>
+    <script src="plugins/vue/vue-resource.min.js"></script>
+    <script src="js/invitee_mge.js"></script>
+</body>
+</html>

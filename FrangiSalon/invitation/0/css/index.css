@@ -1,0 +1,35 @@
+.p_bg{
+	height:100%;
+	background:url('../img/public/zbg.png');
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}
+
+.barcode{
+	text-align: center;
+	top:5.5rem;
+}
+
+.pername{
+	position: absolute;
+	top: 3.8rem;
+    left: 41.5%;
+	font-size:0.4rem;
+	color: #b18e5b;
+}
+
+.p_z1{
+	z-index:1000
+}
+
+.pb_z{
+	bottom:-0.37rem;
+}
+
+.p1_z{
+	bottom:-1rem;
+}
+
+.p3_z{
+	bottom:-1.3rem;
+}

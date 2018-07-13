@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>FRANGI品牌沙龙_活动管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" href="/IMG/frangi.ico" type="image/x-icon">
+    <link href="/CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="css/public.css" rel="stylesheet">
+    <link href="plugins/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap/css/bootoast.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main" id="fsalon_act">
+        <div class="page_top">
+            <div class="container"> 
+                <div class="row"> 
+                    <img class="center-block" alt="logo" src="img/logo.png" >
+                </div>
+                <div class="row"> 
+                    <h3 class="text-center mb-3">品牌沙龙活动管理</h3>
+                </div>
+            </div>
+        </div>
+        <div class="page_content">
+            <div class="container"> 
+                <div class="row"> 
+                    <button @click="OpenForm()" data-toggle="modal" data-target="#myFormModal" type="button" class="btn btn-sm btn-primary pull-right">添加</button>
+                </div>
+                <div class="row clearfix"> 
+                    <h3 v-if="showListFlag" class="text-center">暂无活动</h3>
+                    <table v-if="!showListFlag" v-clock class="table table-bordered table-hover text-center">
+                        <caption class="text-center"><h4>活动列表</h4></caption>
+                        <thead>
+                            <tr>
+                                <th>
+                                    编号
+                                </th>
+                                <th>
+                                    活动时间
+                                </th>
+                                <th>
+                                    地区
+                                </th>
+                                <th>
+                                    活动地点
+                                </th>
+                                <th>
+                                    参加人数
+                                </th>
+                                <th>
+                                    操作
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(item,index) in actlist">
+                                <td>
+                                    {{index+1}}
+                                </td>
+                                <td>
+                                    {{item.activetime}}
+                                </td>
+                                <td>
+                                    {{item.area}}
+                                </td>
+                                <td>
+                                    {{item.address}}
+                                </td>
+                                <td>
+                                    {{item.joincount}}
+                                </td>
+                                <td>
+                                    <button @click="OpenForm(item)" data-toggle="modal" data-target="#myFormModal" type="button" class="btn btn-success btn-sm" title="编辑">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    </button>
+                                    <button @click="OpenForm(item)"  data-toggle="modal" data-target="#myDeleteModal" type="button" class="btn btn-danger btn-sm" title="删除">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 表单（Modal） -->
+        <div class="modal fade" id="myFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button ref="FormCloseBtn" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">活动信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="act_time">时间:</label>
+                            <input v-model="FormActtime" type="text" class="form-control" id="act_time" date-format="yyyy-mm-dd hh:ii" placeholder="请选择活动时间"> 
+                        </div>
+                        <div class="form-group">
+                            <label for="act_area">地区:</label>
+                            <input v-model="FormActarea" type="text" class="form-control" id="act_area" placeholder="请输入地区" >
+                        </div>
+                        <div class="form-group">
+                            <label for="act_addr">地点:</label>
+                            <input v-model="FormActaddr" type="text" class="form-control" id="act_addr" placeholder="请输入具体地点">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" @click="SubmitForm()">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 删除（Modal） -->
+        <div class="modal fade" id="myDeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button ref="ModalCloseBtn" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">删除活动</h4>
+                    </div>
+                    <div class="modal-body">确定删除活动么？</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-danger" @click="DeleteAct()" >确定</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+    <!-- h5.frangi.cn Baidu tongji analytics -->
+    <script src="/JS/baiduhm.js"></script>
+    <script src="/JS/jquery-3.2.1.min.js"></script>
+    <script src="/JS/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="plugins/bootstrap/js/bootoast.js"></script>
+    <script src="plugins/vue/vue.min.js"></script>
+    <script src="plugins/vue/vue-resource.min.js"></script>
+    <script src="js/act_mge.js"></script>
+</body>
+</html>

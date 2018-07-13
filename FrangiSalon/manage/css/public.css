@@ -1,0 +1,88 @@
+/*******************Base*******************/
+html,body{
+    background-image: url("../img/bg.jpg"); 
+}
+a{
+    color: #666
+}
+a:hover{
+    color: #bc925a
+}
+[v-clock] { 
+	display: none; 
+}
+
+.page_top{
+    margin: 20px auto;
+}
+
+.page_content table{
+    background-color: #fff;
+}
+
+.page_content table thead tr th{
+    text-align: center;
+    color: #495057;
+    background-color: #d0b887;
+    border-color: #bc925a;
+}
+
+.page_content table tbody tr td{
+    vertical-align: middle;
+}
+
+.page_table{
+    margin-top: 20px;
+    border-top:0;
+}
+
+.sign_input{
+    margin-top:50px;
+}
+
+.sign_btn{
+    background-color: #000;
+    color: #fff;
+}
+
+.result_content{
+    margin: 50px;
+}
+
+.check_t,.check_f{
+    height:60px;
+}
+
+.checkt_t,.checkt_f{
+    margin-left:8px;
+    font-size:20px;
+    vertical-align: middle;
+}
+.checkt_t{
+    color: #2aaf53;
+}
+.checkt_f{
+    color: #db1d23;
+}
+
+@media screen and (min-width:321px) and (max-width:375px){
+    html{font-size:11px}
+}
+@media screen and (min-width:376px) and (max-width:414px){
+    html{font-size:12px}
+}
+@media screen and (min-width:415px) and (max-width:639px){
+    html{font-size:15px}
+}
+@media screen and (min-width:640px) and (max-width:719px){
+    html{font-size:20px}
+}
+@media screen and (min-width:720px) and (max-width:749px){
+    html{font-size:22.5px}
+}
+@media screen and (min-width:750px) and (max-width:799px){
+    html{font-size:23.5px}
+}
+@media screen and (min-width:800px){
+    html{font-size:25px}
+}
