@@ -15,6 +15,12 @@ if($select){
 		$invrID = "";
 	}
 
+	if(isset($_GET['keyText'])){
+		$keyText = $_GET['keyText'];
+	}else{
+		$keyText = "";
+	}
+
 	class inve{
 		public $id = "";
 		public $name  = "";
@@ -31,15 +37,15 @@ if($select){
 	$array=[];
 	if($actID!=""){
 		if($invrID!=""){
-			$query = mysql_query("select * from fsalon_inve where deleted='0' and act=".$actID." and invr=".$invrID." order by updatetime desc");
+			$query = mysql_query("select * from fsalon_inve where (phone='$keyText' or name='$keyText') and deleted='0' and act=".$actID." and invr=".$invrID."  order by updatetime desc");
 		}else{
-			$query = mysql_query("select * from fsalon_inve where deleted='0' and act=".$actID." order by updatetime desc");
+			$query = mysql_query("select * from fsalon_inve where (phone='$keyText' or name='$keyText') and deleted='0' and act=".$actID." order by updatetime desc");
 		}
 	}else{
 		if($invrID!=""){
-			$query = mysql_query("select * from fsalon_inve where deleted='0' and invr=".$invrID." order by updatetime desc");
+			$query = mysql_query("select * from fsalon_inve where (phone='$keyText' or name='$keyText') and deleted='0' and invr=".$invrID." order by updatetime desc");
 		}else{
-			$query = mysql_query("select * from fsalon_inve where deleted='0' order by updatetime desc");
+			$query = mysql_query("select * from fsalon_inve where (phone='$keyText' or name='$keyText') and deleted='0' order by updatetime desc");
 		}
 	}
 

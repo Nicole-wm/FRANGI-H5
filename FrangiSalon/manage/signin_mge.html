@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row result_content text-center">                             
+            <div class="row result_content text-center" v-if="showCheckT" v-clock >                             
                 <img src="img/check_t.png" class="check_t">                       
                 <span class="checkt_t">验证通过</span>
                 <div class="row clearfix">
@@ -52,20 +52,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>49992720</td>
-                                    <td>皮皮虾</td>
-                                    <td>1800138225</td>
-                                    <td>胡爱军</td>
-                                    <td>2018-06-30 18:30 温州</td>
-                                    <td>2018-06-30 18:26</td>
+                                <tr v-for="item in CurInve">
+                                    <td>{{item.keyno}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.phone}}</td>
+                                    <td>{{item.invrname}}</td>
+                                    <td>{{item.area}} {{item.activetime}}</td>
+                                    <td>{{item.signtime}}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <div class="row result_content text-center">                             
+            <div class="row result_content text-center" v-if="showCheckF" v-clock>                             
                 <img src="img/check_f.png" class="check_f">                       
                 <span class="checkt_f">验证失败</span>
                 <h5>查无此相关信息，请核实后再次签到验证！</h5>

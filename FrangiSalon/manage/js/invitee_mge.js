@@ -12,6 +12,7 @@ window.onload=function(){
 				ShowInvrMge:false,
 				SelectAct:"",
 				SelectInvr:"",
+				SelectText:"",
 				showListFlag:true,
 				invelist: [],
 				invrlist:[],
@@ -116,16 +117,18 @@ window.onload=function(){
 					if(this.CurInvrKey){
 						param={
 							actID:this.CurInvrAct,
-							invrID:this.CurInvrID
+							invrID:this.CurInvrID,
+							keyText:''
 						}
 					}else{
 						param={
 							actID:'',
-							invrID:''
+							invrID:'',
+							keyText:''
 						}
 					}
 				}
-				GetInveUrl = this.ListInveUrl+'?actID='+param.actID+'&invrID='+param.invrID;
+				GetInveUrl = this.ListInveUrl+'?actID='+param.actID+'&invrID='+param.invrID+'&keyText='+param.keyText;
 				this.$http.get(GetInveUrl).then(function(response){
 					if (response.data.code == 1) {
 						if(response.data.data.length){
@@ -257,7 +260,7 @@ window.onload=function(){
 			},
 
 			SelectInve:function(){
-				this.InitInveList({actID:this.SelectAct,invrID:this.SelectInvr});
+				this.InitInveList({actID:this.SelectAct,invrID:this.SelectInvr,keyText:this.SelectText});
 			},
 
 			ToInvr:function(){

@@ -44,7 +44,9 @@ a:hover{
     background-color: #000;
     color: #fff;
 }
-
+.sign_input .sign_btn{
+    color: #fff;
+}
 .result_content{
     margin: 50px;
 }

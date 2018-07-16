@@ -31,17 +31,23 @@
             <div class="container"> 
                 <div class="row"> 
                     <div v-if="!ShowInvrMge" v-clock>
-                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5" style="padding-left:0">
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4" style="padding-left:0">
                             <select v-model="SelectAct" class="form-control" @change="SelectInve()">
                                 <option value="">所有活动</option>
                                 <option v-for="item in actlist" :value="item.id">{{item.activetime}} ( {{item.area}} )</option>
                             </select>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
                             <select v-model="SelectInvr" class="form-control" @change="SelectInve()">
                                 <option value="">所有受邀人</option>
                                 <option v-for="item in invrlist" :value="item.id">{{item.name}} ( {{item.phone}} )</option>
                             </select>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 input-group">
+                            <input v-model="SelectText" type="text" class="form-control" placeholder="姓名/手机号" >
+                            <span class="input-group-btn">                  
+                                <button @click="SelectInve()" class="btn btn-success pull-right" type="button">搜索</button>
+                            </span>
                         </div>
                     </div>
                     <button @click="OpenForm()" data-toggle="modal" data-target="#myFormModal" type="button" class="btn btn-sm btn-primary pull-right">添加</button>
