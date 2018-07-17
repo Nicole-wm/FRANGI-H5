@@ -70,7 +70,7 @@ window.onload=function(){
 							this.CurInvrAct=CurObj.act;
 							this.CurInvrActText=CurObj.activetime+" "+CurObj.area;
 							this.CurInvrInvemgeurl="http://h5.frangi.cn/FrangiSalon/invitation/"+CurObj.act+"/index.html?ID="+CurObj.keyno;
-							this.InitInveList({actID:"",invrID:CurObj.id});
+							this.InitInveList({actID:"",invrID:CurObj.id,keyText:""});
 						}else{
 						}
 					}else {

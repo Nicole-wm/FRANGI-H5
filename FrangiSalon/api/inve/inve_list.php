@@ -35,21 +35,26 @@ if($select){
 	}
 
 	$array=[];
+
+	$query="select * from fsalon_inve where deleted='0'";
+
 	if($actID!=""){
-		if($invrID!=""){
-			$query = mysql_query("select * from fsalon_inve where (phone='$keyText' or name='$keyText') and deleted='0' and act=".$actID." and invr=".$invrID."  order by updatetime desc");
-		}else{
-			$query = mysql_query("select * from fsalon_inve where (phone='$keyText' or name='$keyText') and deleted='0' and act=".$actID." order by updatetime desc");
-		}
-	}else{
-		if($invrID!=""){
-			$query = mysql_query("select * from fsalon_inve where (phone='$keyText' or name='$keyText') and deleted='0' and invr=".$invrID." order by updatetime desc");
-		}else{
-			$query = mysql_query("select * from fsalon_inve where (phone='$keyText' or name='$keyText') and deleted='0' order by updatetime desc");
-		}
+		$query.=" and act='$actID'";
 	}
 
-	while($rows = mysql_fetch_array($query)){
+	if($invrID!=""){
+		$query.=" and invr='$invrID'"; 
+	}
+
+	if($keyText!=""){
+		$query.=" and (phone='$keyText' or name='$keyText')"; 
+	}
+
+	$query.=" order by updatetime desc";
+
+	$result = mysql_query($query);
+
+	while($rows = mysql_fetch_array($result)){
 		$newItem=new inve();
 		$newItem->id=$rows['id'];
 		$newItem->name=$rows['name'];
