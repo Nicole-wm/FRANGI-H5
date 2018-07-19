@@ -12,6 +12,7 @@ var swiper1 = new Swiper('.swiper-container', {
 		swiperAnimate(swiper);
 	}
 });
+
 /*微信内-自动播放*/
 function autoPlayAudio(id) {
 	var audio=document.getElementById(id);

@@ -30,10 +30,13 @@ window.onload=function(){
 				UpdateInveUrl: "../api/inve/inve_update.php",
 				DeleteInveUrl: "../api/inve/inve_delete.php",
 				CurInvrUrl:"../api/inve/inve_mge.php",
-				MgeInvrUrl:"inviter_mge.html"
+				MgeInvrUrl:"inviter_mge.html",
+				pageNo: 1,
+				pages:1,
+				pageSize:15
 			} 
 		},
-
+		
 		mounted(){
 			this.InitActList();
 			this.InitInvrList();
@@ -45,6 +48,21 @@ window.onload=function(){
 		},
 
 		methods:{
+			msgListView(curPage){
+				this.pageNo = curPage;
+				this.InitInveList();
+			},
+
+			loadData() {
+				console.log("1");
+				const options = {
+					params: {
+						paginate: this.pagination.per_page,
+						page: this.pagination.current_page
+					}
+				}
+			},
+
 			getQueryString:function(name){
 				let reg = `(^|&)${name}=([^&]*)(&|$)`
 				let r = window.location.search.substr(1).match(reg); 
@@ -70,7 +88,7 @@ window.onload=function(){
 							this.CurInvrAct=CurObj.act;
 							this.CurInvrActText=CurObj.activetime+" "+CurObj.area;
 							this.CurInvrInvemgeurl="http://h5.frangi.cn/FrangiSalon/invitation/"+CurObj.act+"/index.html?ID="+CurObj.keyno;
-							this.InitInveList({actID:"",invrID:CurObj.id,keyText:""});
+							this.InitInveList({invrID:CurObj.id});
 						}else{
 						}
 					}else {
@@ -113,27 +131,53 @@ window.onload=function(){
 
 			InitInveList: function(param) {
 				var GetInveUrl = this.ListInveUrl;
-				if(!param){
-					if(this.CurInvrKey){
-						param={
-							actID:this.CurInvrAct,
-							invrID:this.CurInvrID,
-							keyText:''
-						}
-					}else{
-						param={
-							actID:'',
-							invrID:'',
-							keyText:''
-						}
+				var CurParam={
+					actID:'',
+					invrID:'',
+					keyText:'',
+					page:1,
+					limit:this.pageSize
+				}
+
+				if(param){
+					if(param.actID){
+						CurParam.actID=param.actID;
+					}
+					if(param.invrID){
+						CurParam.invrID=param.invrID;
+					}
+					if(param.keyText){
+						CurParam.keyText=param.keyText;
+					}
+					if(param.page){
+						CurParam.page=param.page;
+					}
+					if(param.limit){
+						CurParam.limit=param.limit;
+					}
+				}else{
+					CurParam={
+						actID:this.SelectAct,
+						invrID:this.SelectInvr,
+						keyText:this.SelectText,
+						page:this.pageNo,
+						limit:this.pageSize
 					}
 				}
-				GetInveUrl = this.ListInveUrl+'?actID='+param.actID+'&invrID='+param.invrID+'&keyText='+param.keyText;
+
+				if(this.CurInvrKey){
+					CurParam.actID=this.CurInvrAct;
+					CurParam.invrID=this.CurInvrID;
+				}
+
+				GetInveUrl = this.ListInveUrl+'?actID='+CurParam.actID+'&invrID='+CurParam.invrID+'&keyText='+CurParam.keyText+'&page='+CurParam.page+'&limit='+CurParam.limit;
 				this.$http.get(GetInveUrl).then(function(response){
 					if (response.data.code == 1) {
-						if(response.data.data.length){
+						if(response.data.data.count){
+							var totalItems=response.data.data.count;
+							this.pages=Math.ceil(totalItems/this.pageSize);
 							this.showListFlag = false;
-							this.invelist = response.data.data;
+							this.invelist = response.data.data.results;
 							for(var i=0;i<this.invelist.length;i++){
 								this.invelist[i].invemgeurl="http://h5.frangi.cn/FrangiSalon/invitation/"+this.invelist[i].act+"/index.html?ID="+this.invelist[i].keyno;
 							}
@@ -260,7 +304,11 @@ window.onload=function(){
 			},
 
 			SelectInve:function(){
-				this.InitInveList({actID:this.SelectAct,invrID:this.SelectInvr,keyText:this.SelectText});
+				this.pageNo = 1;
+				if(this.$refs.mypagenav){
+					this.$refs.mypagenav.goPage(1);
+				}
+				this.InitInveList();
 			},
 
 			ToInvr:function(){

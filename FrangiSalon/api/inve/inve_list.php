@@ -21,6 +21,18 @@ if($select){
 		$keyText = "";
 	}
 
+	if(isset($_GET['page'])){
+		$page = $_GET['page'];
+	}else{
+		$page = 1;
+	}
+
+	if(isset($_GET['limit'])){
+		$limit = $_GET['limit'];
+	}else{
+		$limit = 10;
+	}
+
 	class inve{
 		public $id = "";
 		public $name  = "";
@@ -34,26 +46,38 @@ if($select){
 		public $area  = "";
 	}
 
+	class invelist {
+		var $count;
+		var $results;
+	}
+
 	$array=[];
 
-	$query="select * from fsalon_inve where deleted='0'";
+	$condition=" from fsalon_inve where deleted='0'";
 
 	if($actID!=""){
-		$query.=" and act='$actID'";
+		$condition.=" and act='$actID'";
 	}
 
 	if($invrID!=""){
-		$query.=" and invr='$invrID'"; 
+		$condition.=" and invr='$invrID'"; 
 	}
 
 	if($keyText!=""){
-		$query.=" and (phone='$keyText' or name='$keyText')"; 
+		$condition.=" and (phone='$keyText' or name='$keyText')"; 
 	}
 
-	$query.=" order by updatetime desc";
+	$query="select * ".$condition;
+	$query.=" order by updatetime desc limit ". ($page-1)*$limit .", $limit";
+
+	$sql = "select count(*) as amount ".$condition; 
+	$sql.= " order by updatetime desc"; 
+
+	$countresult = mysql_query($sql);
+	list($count) = mysql_fetch_row($countresult);
 
 	$result = mysql_query($query);
-
+	$results=[];
 	while($rows = mysql_fetch_array($result)){
 		$newItem=new inve();
 		$newItem->id=$rows['id'];
@@ -72,10 +96,14 @@ if($select){
 			$newItem->activetime=$actrows['activetime'];
 			$newItem->area=$actrows['area'];
 		}
-		$array[] = $newItem;
+		$results[] = $newItem;
 	}
 
-	Response::json(1,'获取邀请人列表成功！',$array);
+	$curlist=new invelist();
+	$curlist->count = intval($count);
+	$curlist->results = $results;
+
+	Response::json(1,'获取邀请人列表成功！',$curlist);
 }else{
 	Response::json(0,'Server Error！');   
 }

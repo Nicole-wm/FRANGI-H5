@@ -23,7 +23,7 @@ if($select){
 
 	$array=[];
 
-	$query = mysql_query("select * from fsalon_inve where keyno='$checkKey' or phone='$checkKey' or name='$checkKey'");
+	$query = mysql_query("select * from fsalon_inve where (keyno='$checkKey' or phone='$checkKey' or name='$checkKey') and deleted='0'");
 	while($row = mysql_fetch_array($query)){
 		$newItem=new inve();
 		$newItem->id=$row['id'];

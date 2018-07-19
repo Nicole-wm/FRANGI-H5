@@ -1,11 +1,14 @@
 <?php
 	$db_host = "localhost"; //数据库主机名
-	$db_user = "root";//数据库用户名
-	$db_pwd = "123456";//数据库密码
-	$db_name = "h5";//数据库名称
-	// $db_user = "h5";//数据库用户名
-	// $db_pwd = "a73fb578d8";//数据库密码
+
+	// $db_user = "root";//数据库用户名
+	// $db_pwd = "123456";//数据库密码
 	// $db_name = "h5";//数据库名称
+
+	$db_user = "h5";//数据库用户名
+	$db_pwd = "a73fb578d8";//数据库密码
+	$db_name = "h5";//数据库名称
+
 	$db_port = "3306";//数据库端口
 	$conn = @mysql_connect($db_host, $db_user,$db_pwd);
 	mysql_query ( 'SET NAMES utf8',$conn);

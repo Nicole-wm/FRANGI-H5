@@ -53,9 +53,9 @@
                     <button @click="OpenForm()" data-toggle="modal" data-target="#myFormModal" type="button" class="btn btn-sm btn-primary pull-right">添加</button>
                 </div>
                 <div class="row clearfix">
-                    <div class="table-responsive page_table"> 
-                        <h3 v-if="showListFlag" class="text-center">暂无邀请人</h3>
-                        <table id="irlist_table" v-if="!showListFlag" v-clock class="table table-bordered table-hover text-center text-nowrap">
+                    <h3 v-if="showListFlag" class="text-center">暂无邀请人</h3>
+                    <div class="table-responsive page_table tableContent" v-if="!showListFlag" v-clock>
+                        <table id="irlist_table" class="table table-bordered table-hover text-center text-nowrap">
                             <caption class="text-center">
                                 <h4>
                                     邀请人列表
@@ -127,6 +127,9 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div class="text-center">
+                            <navigation :pages="pages" :current.sync="pageNo" @navpage="msgListView" ref="mypagenav"></navigation> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,6 +198,7 @@
     <script src="plugins/bootstrap/js/bootoast.js"></script>
     <script src="plugins/vue/vue.min.js"></script>
     <script src="plugins/vue/vue-resource.min.js"></script>
+    <script src="plugins/vue/pagination.js"></script>
     <script src="js/invitee_mge.js"></script>
 </body>
 </html>
